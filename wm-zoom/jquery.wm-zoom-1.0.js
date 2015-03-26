@@ -336,9 +336,12 @@
                     });
                 };
                 
-                setTimeout(function(){
-                    makeZoom();
-                },10);
+                $(window).load(function(){
+                    setTimeout(function(){
+                        makeZoom();
+                    },25);
+                });
+                
             });
         }
     });
