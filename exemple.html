@@ -44,7 +44,7 @@
 			  			</h2>
 			  			<br><hr><br>
 
-			  			<div class="wm-zoom-container my-zoom">
+			  			<div class="wm-zoom-container my-zoom-1">
 			  				<div class="wm-zoom-box">
 								<img src="assets/img/small-image.jpg" class="wm-zoom-default-img" alt="alternative text" data-hight-src="assets/img/big-image.jpg" data-loader-src="assets/img/loader.gif">
 			  				</div>
@@ -52,7 +52,7 @@
 
 			  			<br><hr><br>
 
-			  			<div class="wm-zoom-container my-zoom">
+			  			<div class="wm-zoom-container my-zoom-2">
 			  				<div class="wm-zoom-box">
 			  					<img src="assets/img/small-image-2.jpg" class="wm-zoom-default-img" alt="alternative text" data-hight-src="assets/img/big-image-2.jpg" data-loader-src="assets/img/loader.gif">
 			  				</div>
@@ -75,9 +75,10 @@
 		<script type="text/javascript" src="wm-zoom/jquery.wm-zoom-1.0.min.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function(){
-				$('.my-zoom').WMZoom({
+				$('.my-zoom-1').WMZoom();
+				$('.my-zoom-2').WMZoom({
 					config : {
-						inner : false
+						inner : true
 					}
 				});
 			});

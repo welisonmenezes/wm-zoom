@@ -55,7 +55,8 @@
 
                 // ajax statuses
                 var wmAjaxInit,
-                    wmAjaxEnd;
+                    wmAjaxEnd,
+                    wmOpened;
 
                 // loader dimensions e positions
                 var loaderW,
@@ -170,6 +171,12 @@
                 };
 
                 var setLoaderSize = function(){
+                    // show lens and box hight image
+                    if(options.config.inner !== true)
+                        $lens.stop().fadeIn(300);
+                    
+                    $hightBox.stop().fadeIn(300);
+
                     loaderW = $loader.width();
                     loaderH = $loader.height();
                     halfLoaderW = (stageW/2)-(loaderW/2);
@@ -179,6 +186,8 @@
                         'top' : halfLoaderH+'px',
                         'left' : halfLoaderW+'px'
                     });
+
+                    wmOpened = true;
                 };
 
                 var getImageAjax = function()
@@ -216,21 +225,18 @@
                     // ajax status
                     wmAjaxInit = false;
                     wmAjaxEnd = false;
+                    wmOpened = false;
 
                     $box.mouseenter(function(e)
                     {
-                        // show lens and box hight image
-                        if(options.config.inner !== true)
-                            $lens.stop().fadeIn(300);
-                        
-                        $hightBox.stop().fadeIn(300);
-
                         setLoaderSize();
 
                     }).mousemove(function(e)
                     {
                         var $t = $(this);
                         $hightImg = $hightBox.find('img.wm-zoom-hight-img');
+
+                        if(wmOpened===false){ setLoaderSize(); }
 
                         getImageAjax();
 
@@ -333,6 +339,7 @@
                     {
                         $lens.stop().fadeOut(300);
                         $hightBox.stop().fadeOut(300);
+                        wmOpened = false;
                     });
                 };
                 

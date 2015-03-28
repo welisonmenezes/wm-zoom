@@ -14,11 +14,7 @@ WM Zoom - Plugin jQuery para visualização de imagens em alta definição
 
     <script type="text/javascript">
 	    $(document).ready(function(){
-			$('.my-zoom').WMZoom({
-				config : {
-					inner : false
-				}
-			});
+			$('.my-zoom').WMZoom();
 		});
     </script>
 
